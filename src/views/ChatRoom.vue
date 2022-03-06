@@ -3,15 +3,17 @@
     class="min-w-screen min-h-screen flex flex-col bg-grey-lightest font-sans"
   >
     <Header @on-click-back="onClickBack" :name="$route.query.name" />
-    <div class="w-full">
-      <MessageBlock  
-        v-for="message in messageShow" :key="message.id"
-        :username="message.username" 
-        :message="message.message"/>
-    </div>
-    <div>
-      <input v-model="message" type="text" />
-      <button @click="onClickSend">Enter</button>
+    <div class="min-h-screen">
+      <div class="w-full">
+        <MessageBlock  
+          v-for="message in messageShow" :key="message.id"
+          :username="message.username" 
+          :message="message.message"/>
+      </div>
+      <div class="row-col-1">
+        <input v-model="message" type="text" />
+        <button @click="onClickSend">Enter</button>
+      </div>
     </div>
   </div>
 </template>
